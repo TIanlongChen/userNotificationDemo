@@ -22,6 +22,10 @@ class ViewController: UIViewController {
     
     
     @IBAction func sendNoti(_ sender: UIButton) {
+        basicNotificationDemo();
+    }
+    
+    func basicNotificationDemo(){
         let content = UNMutableNotificationContent();
         content.title = "App a needs your attention"
         content.subtitle = "This is a subtitle"
@@ -32,6 +36,28 @@ class ViewController: UIViewController {
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
+    
+    func triggerDemo(){
+        
+    }
+    
+    
+    func contentDemo(){
+        
+    }
+    
+    
+    func remoreUserNotificationDemo(){
+        
+    }
+    
+    func notificationResponseDemo(){
+        
+    }
+    
+    func ThomoasTopicDemo(){
+        
+    }
 
 }
 
