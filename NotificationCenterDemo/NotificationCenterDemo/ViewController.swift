@@ -31,6 +31,11 @@ class ViewController: UIViewController {
         basicNotificationDemo();
     }
     
+    @IBAction func testResponse(_ sender: Any) {
+        notificationResponseDemo()
+    }
+    
+    
     func basicNotificationDemo(){
         let content = UNMutableNotificationContent();
         content.title = "App a needs your attention"
@@ -65,7 +70,6 @@ class ViewController: UIViewController {
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
-    
     func contentDemo(){
         
     }
@@ -76,7 +80,24 @@ class ViewController: UIViewController {
     }
     
     func notificationResponseDemo(){
+        let content = UNMutableNotificationContent()
+        content.title = "Test Response"
+        content.body = "Seems good?"
         
+        content.categoryIdentifier = NotificationCategory.news.rawValue
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        let requestIdentifier = "testNotification"
+        
+        let request = UNNotificationRequest(identifier: requestIdentifier,
+                                            content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if error == nil {
+                print("Time Interval Notification scheduled: \(requestIdentifier)")
+            }
+        }
     }
     
     func ThomoasTopicDemo(){

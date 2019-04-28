@@ -7,15 +7,29 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let notificationHandler = NotificationHandler()
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .sound, .badge]) {
+                (accepted, error) in
+                if !accepted {
+                    print("User doesn't allow pop up notification")
+                }
+        }
+        
+        //add response handler with customized category (Shihong)
+        registerNotificationCategory()
+        UNUserNotificationCenter.current().delegate = notificationHandler
         return true
     }
 
@@ -40,7 +54,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    //made for Response (Shihong Ling)
+    private func registerNotificationCategory(){
+        let newCatagory: UNNotificationCategory = {
+            let inputAction = UNTextInputNotificationAction(identifier: NotificationCategoryAction.comment.rawValue, title: "Comment", options: [.foreground], textInputButtonTitle: "Send", textInputPlaceholder: "Leave what you want to say")
+            
+            let likeAction = UNNotificationAction(identifier: NotificationCategoryAction.like.rawValue, title: "Like", options: [.foreground])
+            
+            let cancelAction = UNNotificationAction(identifier: NotificationCategoryAction.cancel.rawValue, title: "Cancel", options: [.foreground]
+            )
+            
+            return UNNotificationCategory(identifier: NotificationCategory.news.rawValue, actions: [inputAction,likeAction,cancelAction], intentIdentifiers: [], options: [.customDismissAction])
+        }()
+        
+        UNUserNotificationCenter.current().setNotificationCategories([newCatagory])
+    }
 
 }
 

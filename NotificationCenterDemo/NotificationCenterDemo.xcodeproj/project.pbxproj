@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A01B57D2276605500798C9B /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A01B57C2276605500798C9B /* NotificationHandler.swift */; };
 		3F547E302273548100B34B30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547E2F2273548100B34B30 /* AppDelegate.swift */; };
 		3F547E322273548100B34B30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547E312273548100B34B30 /* ViewController.swift */; };
 		3F547E352273548100B34B30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F547E332273548100B34B30 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A01B57C2276605500798C9B /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		3F547E2C2273548100B34B30 /* NotificationCenterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotificationCenterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F547E2F2273548100B34B30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F547E312273548100B34B30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				3F547E362273548700B34B30 /* Assets.xcassets */,
 				3F547E382273548700B34B30 /* LaunchScreen.storyboard */,
 				3F547E3B2273548700B34B30 /* Info.plist */,
+				0A01B57C2276605500798C9B /* NotificationHandler.swift */,
 			);
 			path = NotificationCenterDemo;
 			sourceTree = "<group>";
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F547E322273548100B34B30 /* ViewController.swift in Sources */,
+				0A01B57D2276605500798C9B /* NotificationHandler.swift in Sources */,
 				3F547E302273548100B34B30 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
