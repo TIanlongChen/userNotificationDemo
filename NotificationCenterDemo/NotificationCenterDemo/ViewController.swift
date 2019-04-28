@@ -10,6 +10,9 @@ import UIKit
 import UserNotifications
 class ViewController: UIViewController {
     
+    @IBOutlet weak var hoursInput: UITextField!
+    @IBOutlet weak var minutesInput: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow, error in})
@@ -20,6 +23,9 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning();
     }
     
+    @IBAction func timeIntervalExample(_ sender: Any){
+        triggerDemo()
+    }
     
     @IBAction func sendNoti(_ sender: UIButton) {
         basicNotificationDemo();
@@ -38,7 +44,25 @@ class ViewController: UIViewController {
     
     
     func triggerDemo(){
+        let content = UNMutableNotificationContent();
+        content.title = "A Time Test"
+        content.subtitle = "A test notification using UNCalendarNotificationTrigger"
+        content.body = "Text, Text, Text"
         
+        var components = DateComponents()
+        components.hour = 1
+        components.minute = 13
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+        
+        /***let content = UNMutableNotificationContent();
+        content.title = "A Time Test"
+        content.subtitle = "A test notification using UNTimeIntervalNotificationTrigger"
+        content.body = "Text, Text, Text"
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: true); **/
+
+        
+        let request = UNNotificationRequest(identifier: "ThisRequestID", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
     
