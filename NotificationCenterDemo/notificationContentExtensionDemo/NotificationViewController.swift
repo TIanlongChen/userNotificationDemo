@@ -9,13 +9,12 @@
 import UIKit
 import UserNotifications
 import UserNotificationsUI
+import AVFoundation
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
     
     
     @IBOutlet weak var pikachuImage: UIImageView!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +29,8 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     
     func didReceive(_ response: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {
         pikachuImage.image = #imageLiteral(resourceName: "itsPika")
+        
         completion(.doNotDismiss)
         
     }
-    
 }

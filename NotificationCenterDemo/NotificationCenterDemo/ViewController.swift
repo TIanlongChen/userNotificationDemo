@@ -111,7 +111,8 @@ class ViewController: UIViewController {
         content.body = ""
         content.badge = 1
         content.categoryIdentifier = "POKEMON"
-        content.sound = UNNotificationSound.default
+        
+        content.sound = UNNotificationSound.init(named: UNNotificationSoundName.init("who.mp3"))
         
         let nceTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let nceRequestIdentifier = "POKEMONQuiz"
