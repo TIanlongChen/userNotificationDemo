@@ -12,9 +12,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var hoursInput: UITextField!
     @IBOutlet weak var minutesInput: UITextField!
+    @IBOutlet weak var contentExtensionButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow, error in})
         // Do any additional setup after loading the view.
     }
@@ -100,8 +102,26 @@ class ViewController: UIViewController {
         }
     }
     
-    func ThomoasTopicDemo(){
+    //@IBOutlet weak var label: UILabel!
+    
+    @IBAction func notificationContentExtensionButtonPressed(_ sender: Any) {
+        let content = UNMutableNotificationContent()
+        content.title = "Once again it's time to play:"
+        content.subtitle = "Who's that pokemon?"
+        content.body = ""
+        content.badge = 1
+        content.categoryIdentifier = "POKEMON"
+        content.sound = UNNotificationSound.default
         
+        let nceTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let nceRequestIdentifier = "POKEMONQuiz"
+        let request = UNNotificationRequest(identifier: nceRequestIdentifier, content: content, trigger: nceTrigger)
+        
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if error == nil {
+                print("Time Interval Notification scheduled: \(nceRequestIdentifier)")
+            }
+        }
     }
 
 }

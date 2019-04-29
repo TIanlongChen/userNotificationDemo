@@ -68,7 +68,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return UNNotificationCategory(identifier: NotificationCategory.news.rawValue, actions: [inputAction,likeAction,cancelAction], intentIdentifiers: [], options: [.customDismissAction])
         }()
         
-        UNUserNotificationCenter.current().setNotificationCategories([newCatagory])
+        let reveal = UNNotificationAction(identifier: "reveal", title: "Reveal", options: [.foreground])
+        
+        let pokemonCategory = UNNotificationCategory(identifier: "POKEMON", actions: [reveal], intentIdentifiers: [], options: [])
+        
+        UNUserNotificationCenter.current().setNotificationCategories([newCatagory, pokemonCategory])
     }
 
 }
