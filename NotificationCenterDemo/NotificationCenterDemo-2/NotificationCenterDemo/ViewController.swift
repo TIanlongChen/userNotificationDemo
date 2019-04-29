@@ -12,11 +12,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var hoursInput: UITextField!
     @IBOutlet weak var minutesInput: UITextField!
-    @IBOutlet weak var contentExtensionButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow, error in})
         // Do any additional setup after loading the view.
     }
@@ -33,8 +31,14 @@ class ViewController: UIViewController {
         basicNotificationDemo();
     }
     
-    @IBAction func testResponse(_ sender: Any) {
-        notificationResponseDemo()
+    @IBAction func catTest(_ sender: Any) {
+        //print("launching a demo")
+        categoryDemo()
+    }
+    
+    
+    @IBAction func contentTest(_ sender: Any) {
+        contentDemo()
     }
     
     
@@ -57,8 +61,8 @@ class ViewController: UIViewController {
         content.body = "Text, Text, Text"
         
         var components = DateComponents()
-        components.hour = 10
-        components.minute = 54
+        components.hour = 1
+        components.minute = 13
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         
         /***let content = UNMutableNotificationContent();
@@ -72,8 +76,57 @@ class ViewController: UIViewController {
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
-    func contentDemo(){
+    func categoryDemo(){
         
+        let sharkAction = UNNotificationAction(identifier: "SHARK_ACTION", title: "Shark", options: UNNotificationActionOptions(rawValue: 0))
+        
+        let bearAction = UNNotificationAction(identifier: "BEAR_ACTION", title: "Bear", options: UNNotificationActionOptions(rawValue: 0))
+        
+        
+        let category = UNNotificationCategory(identifier: "ANIMAL_QUESTION", actions: [sharkAction, bearAction], intentIdentifiers: [], options: .customDismissAction)
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.setNotificationCategories([category])
+        
+        let content = UNMutableNotificationContent();
+        content.title = "A category Test"
+        content.subtitle = "for class and stuff"
+        content.body = "What is the cooler animal?"
+        content.categoryIdentifier = "ANIMAL_QUESTION"
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "animalRequestID", content: content, trigger: trigger)
+        
+        notificationCenter.add(request, withCompletionHandler: nil)
+        
+    }
+    
+    
+    func contentDemo(){
+        //let imageurl = URL.init(fileReferenceLiteralResourceName: "owl 2.jpg")
+        
+        let content = UNMutableNotificationContent();
+        content.title = "A content Test"
+        content.subtitle = "for class and stuff"
+        content.body = "Does this play sound?"
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "click.caf"))
+        //content.sound = UNNotificationSound.default
+        
+        /*do{
+            let attachment = try UNNotificationAttachment(identifier: "owl 2.jpg", url: imageurl, options: nil)
+            content.attachments = [attachment]
+        }catch{
+            print("uh oh")
+        }
+         */
+        
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "contentRequestID", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     
     
@@ -82,47 +135,11 @@ class ViewController: UIViewController {
     }
     
     func notificationResponseDemo(){
-        let content = UNMutableNotificationContent()
-        content.title = "Test Response"
-        content.body = "Seems good?"
         
-        content.categoryIdentifier = NotificationCategory.news.rawValue
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        
-        let requestIdentifier = "testNotification"
-        
-        let request = UNNotificationRequest(identifier: requestIdentifier,
-                                            content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request) { error in
-            if error == nil {
-                print("Time Interval Notification scheduled: \(requestIdentifier)")
-            }
-        }
     }
     
-    //@IBOutlet weak var label: UILabel!
-    
-    @IBAction func notificationContentExtensionButtonPressed(_ sender: Any) {
-        let content = UNMutableNotificationContent()
-        content.title = "Once again it's time to play:"
-        content.subtitle = "Who's that pokemon?"
-        content.body = ""
-        content.badge = 1
-        content.categoryIdentifier = "POKEMON"
+    func ThomoasTopicDemo(){
         
-        content.sound = UNNotificationSound.init(named: UNNotificationSoundName.init("who.mp3"))
-        
-        let nceTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let nceRequestIdentifier = "POKEMONQuiz"
-        let request = UNNotificationRequest(identifier: nceRequestIdentifier, content: content, trigger: nceTrigger)
-        
-        UNUserNotificationCenter.current().add(request) { (error) in
-            if error == nil {
-                print("Time Interval Notification scheduled: \(nceRequestIdentifier)")
-            }
-        }
     }
 
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A01B57D2276605500798C9B /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A01B57C2276605500798C9B /* NotificationHandler.swift */; };
+		0A01B5D322774E9700798C9B /* afasdf.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0A01B5CC22774E9700798C9B /* afasdf.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3F547E302273548100B34B30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547E2F2273548100B34B30 /* AppDelegate.swift */; };
 		3F547E322273548100B34B30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F547E312273548100B34B30 /* ViewController.swift */; };
 		3F547E352273548100B34B30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F547E332273548100B34B30 /* Main.storyboard */; };
@@ -31,6 +32,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0A01B5D122774E9700798C9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F547E242273548100B34B30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A01B5CB22774E9700798C9B;
+			remoteInfo = afasdf;
+		};
 		EEB57C332277333E004DC4F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3F547E242273548100B34B30 /* Project object */;
@@ -55,6 +63,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				EEEC8BB72276BD3A00B79EBB /* notificationContentExtensionDemo.appex in Embed App Extensions */,
+				0A01B5D322774E9700798C9B /* afasdf.appex in Embed App Extensions */,
 				EEB57C352277333E004DC4F0 /* NotificationServiceExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -64,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		0A01B57C2276605500798C9B /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
+		0A01B5CC22774E9700798C9B /* afasdf.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = afasdf.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F547E2C2273548100B34B30 /* NotificationCenterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotificationCenterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F547E2F2273548100B34B30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F547E312273548100B34B30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +96,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0A01B5C922774E9700798C9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F547E292273548100B34B30 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -129,6 +146,7 @@
 				3F547E2C2273548100B34B30 /* NotificationCenterDemo.app */,
 				EEEC8BA82276BD3900B79EBB /* notificationContentExtensionDemo.appex */,
 				EEB57C2E2277333E004DC4F0 /* NotificationServiceExtension.appex */,
+				0A01B5CC22774E9700798C9B /* afasdf.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,6 +199,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0A01B5CB22774E9700798C9B /* afasdf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A01B5D622774E9700798C9B /* Build configuration list for PBXNativeTarget "afasdf" */;
+			buildPhases = (
+				0A01B5C822774E9700798C9B /* Sources */,
+				0A01B5C922774E9700798C9B /* Frameworks */,
+				0A01B5CA22774E9700798C9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = afasdf;
+			productName = afasdf;
+			productReference = 0A01B5CC22774E9700798C9B /* afasdf.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		3F547E2B2273548100B34B30 /* NotificationCenterDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F547E3E2273548700B34B30 /* Build configuration list for PBXNativeTarget "NotificationCenterDemo" */;
@@ -195,6 +230,7 @@
 			dependencies = (
 				EEEC8BB62276BD3A00B79EBB /* PBXTargetDependency */,
 				EEB57C342277333E004DC4F0 /* PBXTargetDependency */,
+				0A01B5D222774E9700798C9B /* PBXTargetDependency */,
 			);
 			name = NotificationCenterDemo;
 			productName = NotificationCenterDemo;
@@ -245,6 +281,9 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Tianlong Chen";
 				TargetAttributes = {
+					0A01B5CB22774E9700798C9B = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 					3F547E2B2273548100B34B30 = {
 						CreatedOnToolsVersion = 10.2;
 					};
@@ -273,11 +312,19 @@
 				3F547E2B2273548100B34B30 /* NotificationCenterDemo */,
 				EEEC8BA72276BD3900B79EBB /* notificationContentExtensionDemo */,
 				EEB57C2D2277333E004DC4F0 /* NotificationServiceExtension */,
+				0A01B5CB22774E9700798C9B /* afasdf */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0A01B5CA22774E9700798C9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F547E2A2273548100B34B30 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -313,6 +360,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0A01B5C822774E9700798C9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F547E282273548100B34B30 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,6 +397,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0A01B5D222774E9700798C9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0A01B5CB22774E9700798C9B /* afasdf */;
+			targetProxy = 0A01B5D122774E9700798C9B /* PBXContainerItemProxy */;
+		};
 		EEB57C342277333E004DC4F0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EEB57C2D2277333E004DC4F0 /* NotificationServiceExtension */;
@@ -383,6 +442,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0A01B5D422774E9700798C9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AL825Q4V2S;
+				INFOPLIST_FILE = afasdf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.NotificationCenterDemo.afasdf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0A01B5D522774E9700798C9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AL825Q4V2S;
+				INFOPLIST_FILE = afasdf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.NotificationCenterDemo.afasdf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		3F547E3C2273548700B34B30 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -628,6 +727,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0A01B5D622774E9700798C9B /* Build configuration list for PBXNativeTarget "afasdf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A01B5D422774E9700798C9B /* Debug */,
+				0A01B5D522774E9700798C9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3F547E272273548100B34B30 /* Build configuration list for PBXProject "NotificationCenterDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
